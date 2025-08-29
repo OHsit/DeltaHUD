@@ -1,0 +1,47 @@
+//Health Bonus Pulse
+event HudHealthBonusPulse
+{
+	Animate	HealthValue		fgcolor		"0 161 0 255"	Linear 0.0 0.75
+	Animate	HealthValue		fgcolor		"137 211 137 255"	Linear 0.85 0.75
+	Animate	PlayerStatusHealthValueNoHurtAnim		fgcolor		"0 161 0 255"	Linear 0.0 0.75
+
+	RunEvent HudHealthBonusPulseLoop	0.4
+}
+
+// call to loop HudHealthBonusPulse
+event HudHealthBonusPulseLoop
+{
+	RunEvent HudHealthBonusPulse 0.0
+}
+
+event HudHealthBonusPulseStop
+{
+	StopEvent HudHealthBonusPulse 0.0
+	StopEvent HudHealthBonusPulseLoop 0.0
+    Animate	HealthValue		fgcolor		"255 255 255 255"	Linear 0.01 0.25
+	Animate	PlayerStatusHealthValueNoHurtAnim		fgcolor		"255 255 255 255"	Linear 0.01 0.25
+	Animate	bgoverheal		fgcolor		"0 161 0 0"	Linear 0.0 0.750
+}
+
+//===========================================
+
+//Health Dying Pulse
+event HudHealthDyingPulse
+{
+	Animate	HealthValue		fgcolor		"161 0 0 255"	Linear 0.0 0.75
+	Animate	HealthValue		fgcolor		"211 137 127 255"	Linear 0.85 0.75
+	RunEvent HudHealthDyingPulseLoop	0.25
+}
+
+// call to loop HudHealthDyingPulse
+event HudHealthDyingPulseLoop
+{
+	RunEvent HudHealthDyingPulse 0.0
+}
+
+event HudHealthDyingPulseStop
+{
+	StopEvent HudHealthDyingPulse 0.0
+	StopEvent HudHealthDyingPulseLoop 0.0
+    Animate	HealthValue		fgcolor		"255 255 255 255"	Linear 0.01 0.25
+}
